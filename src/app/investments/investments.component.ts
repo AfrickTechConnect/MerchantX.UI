@@ -10,6 +10,7 @@ import { ViewinvestmentComponent } from './viewinvestment/viewinvestment.compone
 export class InvestmentsComponent implements OnInit {
 
   name="Investments";
+  acr
   investments =[
     {
       amount: "$500",
@@ -89,6 +90,7 @@ export class InvestmentsComponent implements OnInit {
   ) { }
 
   ngOnInit(){
+    this.acr = localStorage.getItem('ACR');
   }
 
   openModal(data){

@@ -11,7 +11,9 @@ export class ProfileComponent implements OnInit {
 
   name: string = 'Profile'
   formData: FormGroup;
-  
+  user
+  acr
+  val = true
   constructor(
     private builder: FormBuilder,
     private toastr: ToastrService
@@ -19,14 +21,16 @@ export class ProfileComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+    this.acr = localStorage.getItem('ACR');
+    this.user = JSON.parse(localStorage.getItem('USERDET'))
+    console.log(this.user)
     this.formData =  this.builder.group({
-      firstname: new FormControl('', [Validators.required]),
-      lastname: new FormControl('', [Validators.required]),
-      email: new FormControl('', [Validators.required]),
-      password: new FormControl('', [Validators.required]),
-      address: new FormControl('', [Validators.required]),
-      proofOfAddress: new FormControl('', [Validators.required]),
-      identificationUrl: new FormControl('', [Validators.required]),
+      firstname: new FormControl(this.user['firstname'], [Validators.required]),
+      lastname: new FormControl(this.user['lastname'], [Validators.required]),
+      email: new FormControl(this.user['email'], [Validators.required]),
+      address: new FormControl(this.user['address'], [Validators.required]),
+      proofAddress: new FormControl(this.user['proofAddress'], [Validators.required]),
+      identificationUrl: new FormControl(this.user['identificationUrl'], [Validators.required]),
     })
   }
 

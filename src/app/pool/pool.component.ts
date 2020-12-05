@@ -8,6 +8,7 @@ import { Component, OnInit } from '@angular/core';
 export class PoolComponent implements OnInit {
 
   name= "Merchant Fund Pool";
+  acr
   investments =[
     {
       amount: "$500",
@@ -84,7 +85,8 @@ export class PoolComponent implements OnInit {
   };
   constructor() { }
 
-  ngOnInit(): void {
+  ngOnInit() {
+    this.acr = localStorage.getItem('ACR');
   }
 
 }

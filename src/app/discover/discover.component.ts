@@ -10,6 +10,7 @@ import { ViewuserComponent } from './viewuser/viewuser.component';
 export class DiscoverComponent implements OnInit {
 
   name = "Discover"
+  acr
   merchants =[
     {
       cac: "https://www.google.com",
@@ -83,6 +84,7 @@ export class DiscoverComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+    this.acr = localStorage.getItem('ACR');
   }
 
   openModal(data){

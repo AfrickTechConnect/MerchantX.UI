@@ -10,6 +10,7 @@ import { ToastrService } from 'ngx-toastr';
 export class WalletComponent implements OnInit {
 
   name = 'Wallet';
+  acr
   formData: FormGroup;
   constructor(
     private builder: FormBuilder,
@@ -17,6 +18,7 @@ export class WalletComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+    this.acr = localStorage.getItem('ACR');
     this.formData = this.builder.group({
       amount: new FormControl('', [Validators.required])
     })

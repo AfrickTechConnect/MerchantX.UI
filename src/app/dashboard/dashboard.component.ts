@@ -8,9 +8,11 @@ import { Component, OnInit } from '@angular/core';
 export class DashboardComponent implements OnInit {
 
   name: string = 'Dashboard'
+  acr
   constructor() { }
 
-  ngOnInit(): void {
+  ngOnInit(){
+    this.acr = localStorage.getItem('ACR');
   }
 
 }

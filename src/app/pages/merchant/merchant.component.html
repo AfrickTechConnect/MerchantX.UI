@@ -28,7 +28,7 @@
                 class="cursor-pointer uppercase font-bold px-56 py-4 rounded-full text-white bg-black hover:shadow-xl"
                 >
                 Complete Registration 
-                <div class="spinner-border" role="status">
+                <div class="spinner-border" role="status" *ngIf="isLoading">
                     <span class="sr-only">Loading...</span>
                 </div>
             </button>

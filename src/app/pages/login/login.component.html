@@ -1,7 +1,7 @@
 <div class="h-screen w-screen grid grid-cols-3 gap-4">
     
     <div class="col-span-2 flex flex-col justify-center items-center">
-        <h1 class="text-3xl text-black font-bold">Sign in to Merchant<span class="text-purple-700 font-extrabold">X</span></h1>
+        <h1 class="text-3xl text-black font-bold cursor-pointer">Sign in to Merchant<span class="text-purple-700 font-extrabold">X</span></h1>
         <form [formGroup]="formData" (ngSubmit)="onSubmit()" class="mt-6">
             <div class="bg-gray-300 flex w-full pl-6 pr-40 py-6 h-14 rounded">
                 <svg class="w-6 h-6 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
@@ -14,7 +14,11 @@
 
 
             <div class="mt-16 flex justify-center">
-                <button [routerLink]="['/investor']" type="submit" class="cursor-pointer hover:shadow-lg px-48 py-4 uppercase bg-black text-white rounded-full font-bold">Sign in</button>
+                <button type="submit" class="cursor-pointer hover:shadow-lg px-48 py-4 uppercase bg-black text-white rounded-full font-bold">Sign in
+                    <div class="spinner-border" role="status" *ngIf="isLoading">
+                        <span class="sr-only">Loading...</span>
+                    </div>
+                </button>
             </div>
         </form>
     </div>

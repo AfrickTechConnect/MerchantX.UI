@@ -10,6 +10,7 @@ import { ViewmerchantComponent } from './viewmerchant/viewmerchant.component';
 export class RatemerchantComponent implements OnInit {
 
   name: string = 'Rate Merchant'
+  acr
   merchants =[
     {
       cac: "https://www.google.com",
@@ -75,7 +76,8 @@ export class RatemerchantComponent implements OnInit {
     private modalService: NgbModal
   ) { }
 
-  ngOnInit(): void {
+  ngOnInit() {
+    this.acr = localStorage.getItem('ACR');
   }
 
   openModal(data){

@@ -12,15 +12,22 @@
             
             <div class="bg-gray-300 flex w-full pl-6 pr-40 py-6 h-14 rounded mt-4">
                 <svg class="w-6 h-6 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1"></path></svg>
-                <input type="text" placeholder="Government issued Identification" formControlName="attachments" class="bg-gray-300 w-full pr-20" >
+                <input type="text" placeholder="Government issued Identification" formControlName="govtId" class="bg-gray-300 w-full pr-20" >
+            </div>
+            <div class="bg-gray-300 flex w-full pl-6 pr-40 py-6 h-14 rounded mt-4">
+                <svg class="w-6 h-6 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                <input type="number" placeholder="Whats your Investment Cap?" formControlName="investmentLimit" class="bg-gray-300 w-full pr-20" >
             </div>
 
             <div class="flex justify-center mt-8">
                 <button
                 type="submit"
-                [routerLink]="['/dashboard']"
                 class="cursor pointer uppercase font-bold px-56 py-4 rounded-full text-white bg-black hover:shadow-xl"
-                >Complete Registration</button>
+                >Complete Registration
+                <div class="spinner-border" role="status" *ngIf="isLoading">
+                    <span class="sr-only">Loading...</span>
+                </div>
+            </button>
             </div>
             
         </form>
