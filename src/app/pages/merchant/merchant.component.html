@@ -1,0 +1,45 @@
+<div [routerLink]="['/']" class="cursor pointer w-screen flex justify-center text-white text-2xl font-bold bg-black p-6">Merchant<span class="text-purple-600">X</span></div>
+<div class="w-full h-auto mt-16 flex flex-col items-center">
+    <h1 class="font-medium text-3xl text-gray-800">Complete Your Registration</h1>
+    <div class="mt-3 flex ">
+        <a [routerLink]="['/investor']" class="text-sm cursor pointer font-bold text-gray-800 mt-2 uppercase mr-4 ">investor</a>
+        <a [routerLink]="['/merchant']" class="uppercase cursor pointer text-sm font-bold  border rounded-full text-white bg-black px-10 py-2">merchant</a>
+    </div>
+
+    <div class="mt-6">
+        <p class="text-red-700 mb-2">*Please paste the link to google drive/one drive/dropbox file for your CAC, asset <br>declaration and any(other) attachment for your pitch.</p>
+
+        <form [formGroup]="formData" (ngSubmit)="onSubmit()">
+            <div class="bg-gray-300 flex w-full pl-6  pt-6 h-14 rounded">
+                <svg class="w-6 h-6 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg>
+                <textarea type="text" placeholder="Pitch Statement" rows="4" formControlName="pitchStatement" class="bg-gray-300 w-full pr-4" ></textarea>
+            </div>
+
+            <div class="bg-gray-300 flex w-full pl-6 pr-40 py-6 h-14 rounded mt-4">
+                <svg class="w-6 h-6 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1"></path></svg>
+                <input type="text" placeholder="CAC" formControlName="cac" class="bg-gray-300 w-full pr-20" >
+            </div>
+
+            <div class="bg-gray-300 flex w-full pl-6 pr-40 py-6 h-14 rounded mt-4">
+                <svg class="w-6 h-6 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1"></path></svg>
+                <input type="text" placeholder="Asset Declaration" formControlName="assetDeclaration" class="bg-gray-300 w-full pr-20" >
+            </div>
+
+            <div class="bg-gray-300 flex w-full pl-6 pr-40 py-6 h-14 rounded mt-4">
+                <svg class="w-6 h-6 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1"></path></svg>
+                <input type="text" placeholder="Other (pitch) Attachments" formControlName="attachments" class="bg-gray-300 w-full pr-20" >
+            </div>
+
+            <div class="flex justify-center mt-8">
+                <button
+                type="submit"
+                class="cursor pointer uppercase font-bold px-56 py-4 rounded-full text-white bg-black hover:shadow-xl"
+                >Complete Registration<div class="spinner-border" role="status">
+                    <span class="sr-only">Loading...</span>
+                  </div>
+            </button>
+            </div>
+            
+        </form>
+    </div>
+</div>

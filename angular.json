@@ -24,6 +24,7 @@
               "src/assets"
             ],
             "styles": [
+              "node_modules/bootstrap/dist/css/bootstrap.min.css",
               "src/styles.css"
             ],
             "scripts": []
@@ -119,6 +120,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "MerchantXUI"
+    }
+  },
+  "defaultProject": "MerchantXUI",
+  "cli": {
+    "analytics": "9b62b780-5839-4e82-b301-2b38f351f55b"
+  }
 }
