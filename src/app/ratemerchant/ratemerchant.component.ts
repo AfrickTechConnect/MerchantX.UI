@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { MerchantService } from '../merchant.service';
 import { ViewmerchantComponent } from './viewmerchant/viewmerchant.component';
 
 @Component({
@@ -11,24 +12,7 @@ export class RatemerchantComponent implements OnInit {
 
   name: string = 'Rate Merchant'
   acr
-  merchants =[
-    {
-      cac: "https://www.google.com",
-      attachmentforPitch: "https://www.yahoo.com",
-      name: "Akan Bassey"
-    },
-    {
-      cac: "https://www.google.com",
-      attachmentforPitch: "https://www.yahoo.com",
-      name: "Koorede Bassey"
-    },
-    {
-      cac: "https://www.google.com",
-      attachmentforPitch: "https://www.yahoo.com",
-      name: "Emeka Bassey"
-    },
-
-  ]
+  merchants 
   settings = {
     attr: {
       class: 'text-2xl '
@@ -47,6 +31,12 @@ export class RatemerchantComponent implements OnInit {
       position: 'right',
     },
     columns: {
+      name: {
+        filter: true,
+        editable: false,
+        addable: false,
+        title: 'Merchant Name',
+      },
       cac: {
         filter: false,
         editable: false,
@@ -73,11 +63,17 @@ export class RatemerchantComponent implements OnInit {
     },
   };
   constructor(
-    private modalService: NgbModal
+    private modalService: NgbModal,
+    private merchant: MerchantService,
   ) { }
 
   ngOnInit() {
     this.acr = localStorage.getItem('ACR');
+    this.merchant.getMerchants().subscribe(
+      res => {
+        this.merchants = res['data']['Merchant'];
+      }
+    )
   }
 
   openModal(data){
@@ -95,5 +91,7 @@ export class RatemerchantComponent implements OnInit {
         break
     }
   }
+
+  
 
 }

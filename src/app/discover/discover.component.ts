@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { MerchantService } from '../merchant.service';
 import { ViewuserComponent } from './viewuser/viewuser.component';
 
 @Component({
@@ -11,24 +12,7 @@ export class DiscoverComponent implements OnInit {
 
   name = "Discover"
   acr
-  merchants =[
-    {
-      cac: "https://www.google.com",
-      attachmentforPitch: "https://www.yahoo.com",
-      name: "Akan Bassey"
-    },
-    {
-      cac: "https://www.google.com",
-      attachmentforPitch: "https://www.yahoo.com",
-      name: "Korede Bassey"
-    },
-    {
-      cac: "https://www.google.com",
-      attachmentforPitch: "https://www.yahoo.com",
-      name: "Emeka Bassey"
-    },
-
-  ]
+  merchants
   settings = {
     attr: {
       class: 'text-2xl '
@@ -80,11 +64,18 @@ export class DiscoverComponent implements OnInit {
     },
   };
   constructor(
-    private modalService: NgbModal
+    private modalService: NgbModal,
+    private merchant: MerchantService
   ) { }
 
   ngOnInit() {
     this.acr = localStorage.getItem('ACR');
+    this.merchant.getMerchants().subscribe(
+      res => {
+        this.merchants = res['data']['Merchant'];
+        console.log(res['data']['Merchant'])
+      }
+    )
   }
 
   openModal(data){

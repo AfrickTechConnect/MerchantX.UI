@@ -1,7 +1,7 @@
 <div class="text-gray-700">
     <div class="modal-header">
       <h4 class="modal-title font-bold" id="modal-basic-title">
-        Rate Merchant
+        Invest in Merchant
         <span class="badge badge-pill bg-blue-600 text-white p-2">{{
           merchants.name
         }}</span>
@@ -17,10 +17,35 @@
     </div>
   
     <div class="modal-body text-gray-800">
-      Are sure you want to invest in this merchant?
+     <h1 class="text-2xl text-gray-700">
+      Are sure you want to invest in this merchant? if yes, fill the form below:
+     </h1> 
+     <form [formGroup]="formData" (ngSubmit)="onSubmit()">
 
-      <div class="bg-red-700 text-white p-8 ">No</div>
-      <div class="bg-black text-white p-8 ">Continue</div>
-    </div>
+        <div class="bg-gray-300 flex w-full pl-4 pr-40 py-6 h-14 rounded mt-4">
+            <svg class="w-6 h-6 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1"></path></svg>
+            <input type="number" placeholder="Amount" formControlName="amount" class="bg-gray-300 w-full pr-20" >
+        </div>
+
+        <div class="bg-gray-300 flex w-full pl-4 pr-40 py-6 h-14 rounded mt-4">
+            <svg class="w-6 h-6 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1"></path></svg>
+            <input type="date" placeholder="Investment Date" formControlName="maturityDate" class="bg-gray-300 w-full pr-20" >
+        </div>
+
+        <div class="bg-gray-300 flex w-full pl-4 pr-40 py-6 h-14 rounded mt-4">
+          <svg class="w-6 h-6 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1"></path></svg>
+          <input type="number" placeholder="Interest Rate" formControlName="interestRate" class="bg-gray-300 w-full pr-20" >
+      </div>
+
+    
+      
+ 
+
+      <div class="flex justify-center mt-5">
+        <div class="bg-red-700 text-white px-8 py-3 rounded-3xl mr-2 font-bold" (click)="dismissModal()">No</div>
+        <button type="submit" class="bg-black text-white px-8 py-3 rounded-3xl font-bold">Invest</button>
+      </div>
+    </form>
+  </div>
   </div>
   

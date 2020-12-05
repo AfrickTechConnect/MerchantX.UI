@@ -13,7 +13,7 @@ export class SidebarComponent implements OnInit {
   loggedUser
   role
   isMerchant: boolean = localStorage.getItem('Role') === 'Merchant';
-  isAdmin: boolean = localStorage.getItem('Role') === 'admin'
+  isAdmin
   isInvestor: boolean = localStorage.getItem('Role') === 'Investor'
   constructor(
     private router: Router,
@@ -26,14 +26,11 @@ export class SidebarComponent implements OnInit {
       res => {
         this.userDetails = res['data']
         localStorage.setItem('USERDET', JSON.stringify(res['data']))
+        this.isAdmin = this.userDetails.type == 'admin'
         if(this.userDetails['Merchant'] === null  && this.userDetails['Investor'] === null){
           this.role = 'not-registered'
           localStorage.setItem('ROLE', 'unregistered')
-        }else if(this.userDetails.type == 'admin'){
-          this.role = 'admin'
-          this.isAdmin = true
-          localStorage.setItem('ROLE', 'admin')
-        } 
+        }
         else if(this.userDetails['Merchant'] !== null && this.userDetails['Investor'] === null ){
           this.role = 'Merchant'
           this.isMerchant = true
@@ -46,7 +43,7 @@ export class SidebarComponent implements OnInit {
         const acronym = `${this.userDetails['firstname'][0]}${this.userDetails['lastname'][0]}`
         localStorage.setItem('ACR', acronym)
 
-        console.log(this.userDetails['Merchant'] !== null && this.userDetails['Investor'] === null )
+        console.log()
       }
     )
 

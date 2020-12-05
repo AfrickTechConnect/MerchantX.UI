@@ -36,7 +36,21 @@ export class MerchantService {
   rateMerchant(data, token){
     const headers = new HttpHeaders({'Authorization': token });
     
-    return this.http.post(`${this.baseURL}api/v1/merchant/rate`, data, { headers: headers })
+    return this.http.patch(`${this.baseURL}api/v1/merchant/rate`, data, { headers: headers })
+    .pipe(
+      map(
+        (res) =>{ 
+          return res
+        },
+        (error) => {
+          return error
+        }
+      )              
+    )
+  }
+
+  getMerchants(){  
+    return this.http.get(`${this.baseURL}api/v1/merchant/all`,)
     .pipe(
       map(
         (res) =>{ 
