@@ -2,29 +2,27 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
 
-
 @Component({
-  selector: 'app-merchant',
-  templateUrl: './merchant.component.html',
-  styleUrls: ['./merchant.component.css']
+  selector: 'app-wallet',
+  templateUrl: './wallet.component.html',
+  styleUrls: ['./wallet.component.css']
 })
-export class MerchantComponent implements OnInit {
+export class WalletComponent implements OnInit {
 
+  name = 'Wallet';
   formData: FormGroup;
   constructor(
     private builder: FormBuilder,
-    private toastr: ToastrService
+    private toastr: ToastrService,
   ) { }
 
   ngOnInit() {
     this.formData = this.builder.group({
-      cacDocumentUrl: new FormControl(''),
-      attachmentPitchUrl: new FormControl('', [Validators.required]),
+      amount: new FormControl('', [Validators.required])
     })
   }
+  onSubmit() {
 
-  onSubmit(){
-    
   }
 
 }

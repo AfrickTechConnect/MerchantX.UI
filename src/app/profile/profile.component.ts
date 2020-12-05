@@ -3,16 +3,19 @@ import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms'
 import { ToastrService } from 'ngx-toastr';
 
 @Component({
-  selector: 'app-signup',
-  templateUrl: './signup.component.html',
-  styleUrls: ['./signup.component.css']
+  selector: 'app-profile',
+  templateUrl: './profile.component.html',
+  styleUrls: ['./profile.component.css']
 })
-export class SignupComponent implements OnInit {
+export class ProfileComponent implements OnInit {
 
+  name: string = 'Profile'
   formData: FormGroup;
+  
   constructor(
     private builder: FormBuilder,
-    private toastr: ToastrService,
+    private toastr: ToastrService
+
   ) { }
 
   ngOnInit() {
@@ -27,7 +30,8 @@ export class SignupComponent implements OnInit {
     })
   }
 
-  onSubmit() {
-    
+  onSubmit(){
+
   }
+
 }

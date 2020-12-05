@@ -1,0 +1,78 @@
+<div class="grid grid-cols-10  w-screen h-screen">
+    <app-sidebar ></app-sidebar>
+    <div class="col-span-9 pt-4 pr-10 bg-gray-100">
+        <div class="flex justify-between ">
+            <div class="flex">
+                <div class="text-gray-900 ml-10 mt-3 mr-4 text-xl font-bold uppercase">{{name}}</div>
+                
+            </div>
+            
+            <div class="bg-purple-800 p-3 rounded-full font-extrabold text-white mt-1 mr-2">AB</div>
+        </div>
+
+        <div class="mt-8 ml-10">
+            <div class="grid grid-cols-5 gap-x-6">
+                <div class="col-span-2">
+                    <div class="inline-flex mb-4">
+                        <span class="uppercase ml-2 font-bold pt-1">CREDIT SCORE</span>
+                        <span class="text-2xl font-bold ml-2">4.00</span>
+                        
+                    </div>
+                    <div class="flex flex-col">
+                        <div class="px-20 py-6 bg-black rounded-3xl text-white shadow-sm hover:shadow-xl">
+                            <h1 class="font-medium uppercase text-white ">Balance Details</h1>
+                            <h1 class="text-6xl font-semibold mt-6">$ 2,000,000.00</h1>
+
+                            <div class="mt-5">
+                                <div class="grid grid-cols-2">
+                                    <div class="">
+                                        <h1 class="text-xl font-semibold mt-6">$ 1,000,000.00</h1>
+                                        <span class="text-base font-normal mt-2 uppercase ">Income</span>
+                                    </div>
+                                    <div class="">
+                                        <div class="">
+                                            <h1 class="text-xl font-semibold mt-6">$ 500,000.00</h1>
+                                            <span class="text-base font-normal mt-2 uppercase ">Expense</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="flex mt-5 ml-10">
+                        <div class="p-6 rounded-3xl bg-green-200 text-green-700">
+                            <div class=" font-bold text-lg uppercase">Highest Credit Score</div>
+                            <div class="inline-flex">
+                                <div class="text-4xl">5.0</div>
+                                <svg class="w-12 h-12 " fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7l4-4m0 0l4 4m-4-4v18"></path></svg>
+                            </div>
+                            
+                        </div>
+                        <div class="p-6 ml-10 rounded-3xl bg-red-200 text-red-700">
+                            <div class=" font-bold text-lg uppercase">Lowest Credit Score</div>
+                            <div class="inline-flex">
+                                <div class="text-4xl">2.0</div>
+                                <svg class="w-12 h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 17l-4 4m0 0l-4-4m4 4V3"></path></svg>
+                            </div>
+                            
+                        </div>                        
+                    </div>
+                    <div class="hover:text-white hover:bg-black cursor-pointer text-black font-bold text-xl border-4 border-black px-10 mt-10 py-6 text-center rounded-2xl">
+                        Request for Credit Score Review
+                    </div>
+                    <!-- <a class="px-24 py-6 rounded-2xl mt-40 bg-black text-white font-bold w-64">
+                        Request Credit Score Review
+                    </a> -->
+                    
+                </div>
+                <div class="col-span-3">
+                    <div class="text-xl font-bold tracking-normal ml-2 text-gray-700 uppercase">Investments in your fund pool</div>
+                    <div class="">
+                        <ng2-smart-table [source]="investments" [settings]="settings"  ></ng2-smart-table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

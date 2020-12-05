@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, NgModule, NO_ERRORS_SCHEMA } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -15,6 +15,18 @@ import { InvestorComponent } from './pages/investor/investor.component'
 import { RouterModule } from '@angular/router';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { SidebarComponent } from './components/sidebar/sidebar.component';
+import { InvestmentsComponent } from './investments/investments.component';
+import { WalletComponent } from './wallet/wallet.component';
+import { ProfileComponent } from './profile/profile.component';
+import { PoolComponent } from './pool/pool.component';
+import { DiscoverComponent } from './discover/discover.component';
+import { RatemerchantComponent } from './ratemerchant/ratemerchant.component';
+import { Ng2SmartTableModule } from 'ng2-smart-table';
+import { ViewinvestmentComponent } from './investments/viewinvestment/viewinvestment.component';
+import { ViewuserComponent } from './discover/viewuser/viewuser.component';
+import { ViewmerchantComponent } from './ratemerchant/viewmerchant/viewmerchant.component';
+
 
 
 @NgModule({
@@ -25,6 +37,16 @@ import { DashboardComponent } from './dashboard/dashboard.component';
     MerchantComponent,
     InvestorComponent,
     DashboardComponent,
+    SidebarComponent,
+    InvestmentsComponent,
+    WalletComponent,
+    ProfileComponent,
+    PoolComponent,
+    DiscoverComponent,
+    RatemerchantComponent,
+    ViewinvestmentComponent,
+    ViewuserComponent,
+    ViewmerchantComponent,
   ],
   imports: [
     BrowserModule,
@@ -37,8 +59,11 @@ import { DashboardComponent } from './dashboard/dashboard.component';
     ToastrModule.forRoot(),
     BrowserAnimationsModule,
     NgbModule,
+    Ng2SmartTableModule,
+    NgbModule,
   ],
   providers: [],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

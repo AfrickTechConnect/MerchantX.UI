@@ -1,0 +1,84 @@
+<div class="grid grid-cols-10  w-screen h-screen">
+    <app-sidebar ></app-sidebar>
+    <div class="col-span-9 pt-4 pr-10 bg-gray-100">
+        <div class="flex justify-between ">
+            <div class="flex">
+                <div class="text-gray-900 ml-10 mt-3 mr-4 text-xl font-bold uppercase">{{name}}</div>
+            </div>  
+            <div class="bg-purple-800 p-3 rounded-full font-extrabold text-white mt-1 mr-2">AB</div>
+        </div>
+
+        <div class="mt-8 ml-10">
+            <div class="grid grid-cols-5">
+                <div class="col-span-3">
+                    <div class="flex">
+                        <div class="px-20 py-6 bg-black rounded-3xl text-white shadow-sm hover:shadow-xl">
+                            <h1 class="font-medium uppercase text-white ">Balance Details</h1>
+                            <h1 class="text-6xl font-semibold mt-6">$ 2,000,000.00</h1>
+
+                            <div class="mt-5">
+                                <div class="grid grid-cols-2">
+                                    <div class="">
+                                        <h1 class="text-xl font-semibold mt-6">$ 1,000,000.00</h1>
+                                        <span class="text-base font-normal mt-2 uppercase ">Income</span>
+                                    </div>
+                                    <div class="">
+                                        <div class="">
+                                            <h1 class="text-xl font-semibold mt-6">$ 500,000.00</h1>
+                                            <span class="text-base font-normal mt-2 uppercase ">Expense</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="flex mt-5 ml-4">
+                        <div class="p-8 rounded-3xl bg-green-200 text-green-700">
+                            <div class=" font-bold text-xl uppercase">Gain</div>
+                            <div class="inline-flex">
+                                <div class="text-4xl">$ 10,000</div>
+                                <svg class="w-12 h-12 " fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7l4-4m0 0l4 4m-4-4v18"></path></svg>
+                            </div>
+                            
+                        </div>
+                        <div class="p-8 ml-10 rounded-3xl bg-red-200 text-red-700">
+                            <div class=" font-bold text-xl uppercase">Loss</div>
+                            <div class="inline-flex">
+                                <div class="text-4xl">$ 10,000</div>
+                                <svg class="w-12 h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 17l-4 4m0 0l-4-4m4 4V3"></path></svg>
+                            </div>
+                            
+                        </div>
+                    </div>
+                </div>
+                <div class="col-span-2">
+                    <h1 class="text-gray-800 text-2xl font-bold">Add Funds to your Wallet</h1>
+                    <div class="flex flex-col-reverse rounded-3xl bg-purple-700 px-10 mt-4 shadow-md hover:shadow-2xl">
+                        <div class="flex justify-between mb-6 mt-24">
+                            <h1 class="text-white text-2xl font-bold">11/20</h1>
+                            <h1 class="text-white text-2xl font-bold uppercase italic">Visa</h1>
+                        </div>
+
+                        <div class=" flex justify-center font-semibold tracking-wider text-4xl text-white mt-32">
+                            5213 1234 7890 1006
+                        </div>
+                    </div>
+                    <form [formGroup]="formData" (ngSubmit)="onSubmit()">
+                        <div class="mt-2 flex flex-col">
+                            <div class=" flex w-full pl-10 bg-gray-300 py-6 h-14 rounded mt-4">
+                                <svg class="w-6 h-6 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                                <input type="number" placeholder="Amount to Fund Wallet" formControlName="fund" class="bg-gray-300 w-full" >
+                            </div>
+    
+                            <button type="submit" class="text-center bg-black text-2xl font-semibold text-white mt-6 rounded-2xl py-6">Add Funds</button>
+                        </div>
+
+                    </form>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+    
+</div>

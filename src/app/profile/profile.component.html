@@ -1,0 +1,57 @@
+<div class="grid grid-cols-10  w-screen h-screen">
+    <app-sidebar ></app-sidebar>
+    <div class="col-span-9 pt-4 pr-10 bg-gray-100">
+        <div class="flex justify-between ">
+            <div class="flex">
+                <div class="text-gray-900 ml-10 mt-3 mr-4 text-xl font-bold uppercase">{{name}}</div>
+            </div>
+            <div class="bg-purple-800 p-3 rounded-full font-extrabold text-white mt-1 mr-2">AB</div>
+        </div>
+
+        <div class="flex justify-center mt-6 mx-64">
+            <form [formGroup]="formData" (ngSubmit)="onSubmit()" class="mt-6">
+                <div class="grid grid-cols-2 gap-2">
+                    <div class="bg-gray-300 flex w-full pl-10 pr-16 py-6 h-14 rounded">
+                        <svg class="w-6 h-6 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path></svg>
+                        <input type="text" placeholder="First Name" formControlName="firstname" class="bg-gray-300 w-full" >
+                    </div>
+                    <div class="bg-gray-300 flex w-full pl-10 pr-16 py-6 h-14 rounded">
+                        <svg class="w-6 h-6 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path></svg>
+                        <input type="text" placeholder="Last Name" formControlName="lastname" class="bg-gray-300 w-full" >
+                    </div>
+                </div>
+    
+    
+                <div class=" flex w-full pl-10 bg-gray-300 py-6 h-14 rounded mt-4">
+                    <svg class="w-6 h-6 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
+                    <input type="email" placeholder="Email" formControlName="email" class="bg-gray-300 w-full" >
+                </div>
+                <div class=" flex w-full pl-10 bg-gray-300 pt-6 h-14 rounded mt-4">
+                    <svg class="w-6 h-6 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"></path></svg>                
+                    <textarea type="address" placeholder="Address" formControlName="adress" class="bg-gray-300 w-full" ></textarea>
+                </div>
+                <div class="grid grid-cols-2 gap-2">
+                    <div class=" flex w-full pl-10 bg-gray-300 py-6 h-14 rounded mt-4">
+                        <svg class="w-6 h-6 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1"></path></svg>
+                        <input type="text" placeholder="Proof of Address " formControlName="proofOfAddress" class="bg-gray-300 w-full" >
+                    </div>
+                    <div class=" flex w-full pl-10 bg-gray-300 py-6 h-14 rounded mt-4">
+                        <svg class="w-6 h-6 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1"></path></svg>
+                        <input type="text" placeholder="Identification Url" formControlName="identificationUrl" class="bg-gray-300 w-full" >
+                    </div>
+                </div>
+    
+                
+                <div class=" flex w-full pl-10 bg-gray-300 py-6 h-14 rounded mt-4">
+                    <svg class="w-6 h-6 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path></svg>
+                    <input type="password" placeholder="Password" formControlName="password" class="bg-gray-300 w-full" >
+                </div>
+
+                <div class="mt-16 flex justify-center">
+                    <button type="submit" class="px-64 py-4 uppercase bg-black text-white rounded-full font-bold hover:shadow-lg">Edit Profile</button>
+                </div>
+                
+            </form>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,19 @@
+<div class="grid grid-cols-10  w-screen h-screen">
+    <app-sidebar ></app-sidebar>
+    <div class="col-span-9 pt-4 pr-10 bg-gray-100">
+        <div class="flex justify-between ">
+            <div class="flex">
+                <div class="text-gray-900 ml-10 mt-3 mr-4 text-xl font-bold uppercase">{{name}}</div>
+                
+            </div>
+            
+            <div class="bg-purple-800 p-3 rounded-full font-extrabold text-white mt-1 mr-2">AB</div>
+        </div>
+
+        <div class="ml-10 mt-10">
+            <ng2-smart-table [settings]="settings" (custom)="onCustom($event)" [source]="investments"></ng2-smart-table>
+        </div>
+        
+        
+    </div>
+</div>
