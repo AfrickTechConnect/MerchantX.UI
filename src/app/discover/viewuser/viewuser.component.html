@@ -23,17 +23,17 @@
      <form [formGroup]="formData" (ngSubmit)="onSubmit()">
 
         <div class="bg-gray-300 flex w-full pl-4 pr-40 py-6 h-14 rounded mt-4">
-            <svg class="w-6 h-6 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1"></path></svg>
+          <svg class="w-6 h-6 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
             <input type="number" placeholder="Amount" formControlName="amount" class="bg-gray-300 w-full pr-20" >
         </div>
 
         <div class="bg-gray-300 flex w-full pl-4 pr-40 py-6 h-14 rounded mt-4">
-            <svg class="w-6 h-6 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1"></path></svg>
+          <svg class="w-6 h-6 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
             <input type="date" placeholder="Investment Date" formControlName="maturityDate" class="bg-gray-300 w-full pr-20" >
         </div>
 
         <div class="bg-gray-300 flex w-full pl-4 pr-40 py-6 h-14 rounded mt-4">
-          <svg class="w-6 h-6 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1"></path></svg>
+          <svg class="w-6 h-6 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 9V7a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2m2 4h10a2 2 0 002-2v-6a2 2 0 00-2-2H9a2 2 0 00-2 2v6a2 2 0 002 2zm7-5a2 2 0 11-4 0 2 2 0 014 0z"></path></svg>
           <input type="number" placeholder="Interest Rate" formControlName="interestRate" class="bg-gray-300 w-full pr-20" >
       </div>
 
@@ -42,8 +42,12 @@
  
 
       <div class="flex justify-center mt-5">
-        <div class="bg-red-700 text-white px-8 py-3 rounded-3xl mr-2 font-bold" (click)="dismissModal()">No</div>
-        <button type="submit" class="bg-black text-white px-8 py-3 rounded-3xl font-bold">Invest</button>
+        <div class="bg-red-700 text-white px-16 py-3 rounded-3xl mr-2 font-bold" (click)="dismissModal()">No</div>
+        <button type="submit" class="bg-black text-white px-16 py-3 rounded-3xl font-bold">Invest
+          <div class="spinner-border" role="status" *ngIf="isLoading">
+            <span class="sr-only">Loading...</span>
+        </div>
+        </button>
       </div>
     </form>
   </div>

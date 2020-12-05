@@ -27,4 +27,36 @@ export class InvestorService {
       )              
     )
   }
+
+  invest(data, token){
+    const headers = new HttpHeaders({'Authorization': token });
+    return this.http.post(`${this.baseURL}api/v1/investor/invest`, data, { headers: headers })
+    .pipe(
+      map(
+        (res) =>{ 
+          return res
+        },
+        (error) => {
+          return error
+        }
+      )              
+    )
+  }
+   
+  
+
+  investments( token){
+    const headers = new HttpHeaders({'Authorization': token });
+    return this.http.get(`${this.baseURL}api/v1/investor/investments`, { headers: headers })
+    .pipe(
+      map(
+        (res) =>{ 
+          return res
+        },
+        (error) => {
+          return error
+        }
+      )              
+    )
+  }
 }
