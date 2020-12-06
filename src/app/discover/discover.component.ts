@@ -45,7 +45,7 @@ export class DiscoverComponent implements OnInit {
         title: 'CAC Document',
         type: 'html',
         valuePrepareFunction: (cell, data) => {
-          return `<a href='${data.cac}' target='_blank'>CAC for ${data.name}</a>`
+          return `<a href='${data.cacDocumentUrl}' target='_blank'>CAC for ${data.name}</a>`
         },
       },
       attachmentforPitch: {
@@ -55,7 +55,7 @@ export class DiscoverComponent implements OnInit {
         title: 'Attachment For Pitch',
         type: 'html',
         valuePrepareFunction: (cell, data) => {
-          return `<a href='${data.attachmentforPitch}' target='_blank'>Business pitch for ${data.name}</a>`
+          return `<a href='${data.attachementPitch}' target='_blank'>Business pitch for ${data.name}</a>`
         },
       },
     },
