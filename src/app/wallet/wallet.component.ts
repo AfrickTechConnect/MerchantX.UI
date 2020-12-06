@@ -55,6 +55,11 @@ export class WalletComponent implements OnInit {
             res['data'].message,
              'Wallet'
            )
+           this.router
+          .navigateByUrl('/', { skipLocationChange: true })
+          .then(() => {
+            this.router.navigate(['/investor/wallet'])
+          })
         },
         (error) => {
           if (error.status === 401 || 403 || 404 || 400 || 500)

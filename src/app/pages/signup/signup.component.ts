@@ -49,6 +49,7 @@ export class SignupComponent implements OnInit {
             'Create Account'
           )
           localStorage.setItem('USER', JSON.stringify(res['data']));
+          
           this.router.navigate(['/investor']);
         },
         (error) => {

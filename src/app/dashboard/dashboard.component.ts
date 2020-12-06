@@ -18,6 +18,8 @@ export class DashboardComponent implements OnInit {
   merchantCount
   totalInvestments
   balance
+  poolBalance
+  creditScore
   constructor(
     private investorService: InvestorService,
     private merchantService: MerchantService
@@ -44,6 +46,10 @@ export class DashboardComponent implements OnInit {
     this.investorService.investorMetrics(userDet['token']).subscribe(res => {
       this.balance = res['data']['balance']
       this.totalInvestments = res['data']['investment']
+    })
+    this.merchantService.fundpool(userDet['token']).subscribe(res => {
+      this.poolBalance = res['data']['totalFunding']
+      this.creditScore = res['data']['creditScore']
     })
   }
 

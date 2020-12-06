@@ -49,7 +49,11 @@ export class MerchantComponent implements OnInit {
             res['data'].message,
             'Merchant Account'
           )
-          this.router.navigate(['/dashboard']);
+          this.router
+          .navigateByUrl('/', { skipLocationChange: true })
+          .then(() => {
+            this.router.navigate(['/dashboard']);
+          })
         },
         (error) => {
           if (error.status === 401 || 403 || 404 || 400 || 500)
