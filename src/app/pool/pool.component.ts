@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { MerchantService } from '../merchant.service';
 
 @Component({
   selector: 'app-pool',
@@ -9,32 +10,9 @@ export class PoolComponent implements OnInit {
 
   name= "Merchant Fund Pool";
   acr
-  investments =[
-    {
-      amount: "$500",
-      maturityDate: "10/20/2020",
-      investmentDate: '10/20/2018',
-      interestRate: '20%'
-    },
-    {
-      amount: "$500",
-      maturityDate: "10/20/2020",
-      investmentDate: '10/20/2018',
-      interestRate: '20%'
-    },
-    {
-      amount: "$500",
-      maturityDate: "10/20/2020",
-      investmentDate: '10/20/2018',
-      interestRate: '20%'
-    },
-    {
-      amount: "$500",
-      maturityDate: "10/20/2020",
-      investmentDate: '10/20/2018',
-      interestRate: '20%'
-    }
-  ]
+  totalFunding = 0
+  creditScore = 0
+  investments 
   settings = {
     attr: {
       class: 'text-2xl '
@@ -59,17 +37,21 @@ export class PoolComponent implements OnInit {
         addable: false,
         title: 'Amount'
       },
-      maturityDate: {
+      date: {
         filter: false,
         editable: false,
         addable: false,
         title: 'Maturity Date'
       },
-      investmentDate: {
+      createdAt: {
         filter: false,
         editable: false,
         addable: false,
-        title: 'Investment Date'
+        title: 'Investment Date',
+        valuePrepareFunction: (cell, data) => {
+          const date = new Date(data.createdAt).toLocaleString()
+          return date;
+        },
       },
       interestRate: {
         filter: false,
@@ -83,10 +65,19 @@ export class PoolComponent implements OnInit {
       perPage: 10,
     },
   };
-  constructor() { }
+  constructor(
+    private merchantService: MerchantService
+  ) { }
 
   ngOnInit() {
     this.acr = localStorage.getItem('ACR');
+    const userDet = JSON.parse(localStorage.getItem('USERDET'));
+
+    this.merchantService.fundpool(userDet['token']).subscribe(res => {
+      this.totalFunding = res['data']['totalFunding']
+      this.investments = res['data']['Investments']
+      this.creditScore = res['data']['creditScore']
+    })
   }
 
 }

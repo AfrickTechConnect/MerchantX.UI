@@ -3,6 +3,7 @@ import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms'
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { finalize } from 'rxjs/operators';
+import { InvestorService } from '../investor.service';
 import { WalletService } from '../wallet.service';
 
 @Component({
@@ -17,10 +18,12 @@ export class WalletComponent implements OnInit {
   user
   formData: FormGroup;
   isLoading = false;
+  balance = 0;
   constructor(
     private builder: FormBuilder,
     private toastr: ToastrService,
     private walletService: WalletService,
+    private investorService: InvestorService,
     private router: Router
   ) { }
 
@@ -29,6 +32,10 @@ export class WalletComponent implements OnInit {
     this.acr = localStorage.getItem('ACR');
     this.formData = this.builder.group({
       amount: new FormControl('', [Validators.required])
+    })
+
+    this.investorService.investorMetrics(this.user['token']).subscribe(res => {
+      this.balance = res['data']['balance']
     })
   }
   onSubmit(){

@@ -59,4 +59,33 @@ export class InvestorService {
       )              
     )
   }
+
+  count(){
+    return this.http.get(`${this.baseURL}api/v1/investor`)
+    .pipe(
+      map(
+        (res) =>{ 
+          return res
+        },
+        (error) => {
+          return error
+        }
+      )              
+    )
+  }
+
+  investorMetrics(token){
+    const headers = new HttpHeaders({'Authorization': token });
+    return this.http.get(`${this.baseURL}api/v1/investor/metrics`, { headers: headers })
+    .pipe(
+      map(
+        (res) =>{ 
+          return res
+        },
+        (error) => {
+          return error
+        }
+      )              
+    )
+  }
 }

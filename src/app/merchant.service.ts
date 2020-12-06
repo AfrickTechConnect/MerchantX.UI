@@ -62,4 +62,33 @@ export class MerchantService {
       )              
     )
   }
+
+  count(){
+    return this.http.get(`${this.baseURL}api/v1/merchant/`)
+    .pipe(
+      map(
+        (res) =>{ 
+          return res
+        },
+        (error) => {
+          return error
+        }
+      )              
+    )
+  }
+
+  fundpool(token){
+    const headers = new HttpHeaders({'Authorization': token });
+    return this.http.get(`${this.baseURL}api/v1/merchant/fundpool`,  { headers: headers })
+    .pipe(
+      map(
+        (res) =>{ 
+          return res
+        },
+        (error) => {
+          return error
+        }
+      )              
+    )
+  }
 }

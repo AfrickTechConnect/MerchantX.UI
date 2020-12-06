@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { InvestorService } from '../investor.service';
 import { ViewinvestmentComponent } from './viewinvestment/viewinvestment.component';
 
 @Component({
@@ -11,32 +12,8 @@ export class InvestmentsComponent implements OnInit {
 
   name="Investments";
   acr
-  investments =[
-    {
-      amount: "$500",
-      maturityDate: "10/20/2020",
-      investmentDate: '10/20/2018',
-      interestRate: '20%'
-    },
-    {
-      amount: "$500",
-      maturityDate: "10/20/2020",
-      investmentDate: '10/20/2018',
-      interestRate: '20%'
-    },
-    {
-      amount: "$500",
-      maturityDate: "10/20/2020",
-      investmentDate: '10/20/2018',
-      interestRate: '20%'
-    },
-    {
-      amount: "$500",
-      maturityDate: "10/20/2020",
-      investmentDate: '10/20/2018',
-      interestRate: '20%'
-    }
-  ]
+  user
+  investments 
   settings = {
     attr: {
       class: 'text-2xl '
@@ -61,17 +38,21 @@ export class InvestmentsComponent implements OnInit {
         addable: false,
         title: 'Amount'
       },
-      maturityDate: {
+      date: {
         filter: false,
         editable: false,
         addable: false,
         title: 'Maturity Date'
       },
-      investmentDate: {
+      createdAt: {
         filter: false,
         editable: false,
         addable: false,
-        title: 'Investment Date'
+        title: 'Investment Date',
+        valuePrepareFunction: (cell, data) => {
+          const date = new Date(data.createdAt).toLocaleString()
+          return date;
+        },
       },
       interestRate: {
         filter: false,
@@ -86,11 +67,18 @@ export class InvestmentsComponent implements OnInit {
     },
   };
   constructor(
-    private modalService: NgbModal
+    private modalService: NgbModal,
+    private investorService: InvestorService
   ) { }
 
   ngOnInit(){
     this.acr = localStorage.getItem('ACR');
+    this.user = JSON.parse(localStorage.getItem('USER'));
+
+    this.investorService.investments(this.user['token']).subscribe(res => {
+      console.log(res['data'])
+      this.investments = res['data']['Investments']
+    })
   }
 
   openModal(data){

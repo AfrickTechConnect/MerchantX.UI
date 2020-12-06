@@ -15,23 +15,23 @@
                 <div class="col-span-2">
                     <div class="inline-flex mb-4">
                         <span class="uppercase ml-2 font-bold pt-1">CREDIT SCORE</span>
-                        <span class="text-2xl font-bold ml-2">4.00</span>
+                        <span class="text-2xl font-bold ml-2">{{ creditScore }}</span>
                         
                     </div>
                     <div class="flex flex-col">
                         <div class="px-20 py-6 bg-black rounded-3xl text-white shadow-sm hover:shadow-xl">
                             <h1 class="font-medium uppercase text-white ">Balance Details</h1>
-                            <h1 class="text-6xl font-semibold mt-6">$ 2,000,000.00</h1>
+                            <h1 class="text-6xl font-semibold mt-6">$ {{ totalFunding }}</h1>
 
                             <div class="mt-5">
                                 <div class="grid grid-cols-2">
                                     <div class="">
-                                        <h1 class="text-xl font-semibold mt-6">$ 1,000,000.00</h1>
+                                        <h1 class="text-xl font-semibold mt-6">$ 0.00</h1>
                                         <span class="text-base font-normal mt-2 uppercase ">Income</span>
                                     </div>
                                     <div class="">
                                         <div class="">
-                                            <h1 class="text-xl font-semibold mt-6">$ 500,000.00</h1>
+                                            <h1 class="text-xl font-semibold mt-6">$ 0.00</h1>
                                             <span class="text-base font-normal mt-2 uppercase ">Expense</span>
                                         </div>
                                     </div>
@@ -44,7 +44,7 @@
                         <div class="p-6 rounded-3xl bg-green-200 text-green-700">
                             <div class=" font-bold text-lg uppercase">Highest Credit Score</div>
                             <div class="inline-flex">
-                                <div class="text-4xl">5.0</div>
+                                <div class="text-4xl">0.0</div>
                                 <svg class="w-12 h-12 " fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7l4-4m0 0l4 4m-4-4v18"></path></svg>
                             </div>
                             
@@ -52,7 +52,7 @@
                         <div class="p-6 ml-10 rounded-3xl bg-red-200 text-red-700">
                             <div class=" font-bold text-lg uppercase">Lowest Credit Score</div>
                             <div class="inline-flex">
-                                <div class="text-4xl">2.0</div>
+                                <div class="text-4xl">0.0</div>
                                 <svg class="w-12 h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 17l-4 4m0 0l-4-4m4 4V3"></path></svg>
                             </div>
                             
